@@ -35,9 +35,9 @@ public class ViewTable {
         System.out.print(StringUtils.join(stringValueList, "|") + "\n" + designStringSerarator + "\n");
     }
 
-    private List<String> fillListStringDesign(Integer tableSize, int lenMaxValue) {
+    private List<String> fillListStringDesign(int tableSize, int lenMaxValue) {
         ArrayList<String> stringDesignList = new ArrayList<>();
-        String designOneColumn = normLengthStringFromSymbols("", "-", tableSize.toString().length());;
+        String designOneColumn = normLengthStringFromSymbols("", "-", Integer.toString(tableSize).length());;
 
         stringDesignList.add(designOneColumn);
 
