@@ -7,19 +7,11 @@ import java.io.InputStreamReader;
 
 public class InputReader {
 
-    private Table table;
-
-    public InputReader() {
-        this.table = new Table();
-    }
-
-    public void readInput()
+    public Table readInput()
     {
+        Table table = new Table();
         table.setTableSize(getInputValue());
         table.setLenMaxValue(Integer.toString(table.getTableSize() * table.getTableSize()).length());
-    }
-
-    public Table getTable() {
         return table;
     }
 
@@ -37,7 +29,7 @@ public class InputReader {
         while (true);
     }
 
-    private void checkInputValue(Integer n) throws IllegalArgumentException {
+    private void checkInputValue(int n) throws IllegalArgumentException {
 
         if (n > 32) {
             throw new IllegalArgumentException("Число должно быть не больше 32, введите заново");

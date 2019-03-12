@@ -4,6 +4,7 @@ import ru.nsu.popova.objects.Table;
 import com.sun.deploy.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ViewTable {
 
@@ -23,33 +24,31 @@ public class ViewTable {
 
     private void printString(int tableSize, int lenMaxValue, Integer numberString, String designStringSerarator)
     {
-        ArrayList<String> stringValueList = new ArrayList<>();
-        stringValueList.add(valueStringToInteger(numberString, ((Integer)tableSize).toString().length()));
+        List<String> stringValueList = new ArrayList<>();
+        stringValueList.add(buildCell(numberString, ((Integer)tableSize).toString().length()));
 
         numberString = (numberString == null ? 1 : numberString);
 
         for (int i = 1; i <= tableSize; ++i) {
-            stringValueList.add(valueStringToInteger(i * numberString, lenMaxValue));
+            stringValueList.add(buildCell(i * numberString, lenMaxValue));
         }
         System.out.print(StringUtils.join(stringValueList, "|") + "\n" + designStringSerarator + "\n");
     }
 
-    private ArrayList<String> fillListStringDesign(Integer tableSize, int lenMaxValue) {
+    private List<String> fillListStringDesign(Integer tableSize, int lenMaxValue) {
         ArrayList<String> stringDesignList = new ArrayList<>();
-        String designOneColumn = "";
-        String designColumn = "";
+        String designOneColumn = normLengthStringFromSymbols("", "-", tableSize.toString().length());;
 
-        designOneColumn = normLengthStringFromSymbols(designOneColumn, "-", tableSize.toString().length());
         stringDesignList.add(designOneColumn);
 
-        designColumn = normLengthStringFromSymbols(designColumn, "-", lenMaxValue);
+        String designColumn = normLengthStringFromSymbols("", "-", lenMaxValue);
         for (int i = 1; i <= tableSize; ++i) {
             stringDesignList.add(designColumn);
         }
         return stringDesignList;
     }
 
-    private String valueStringToInteger(Integer value, int indent) {
+    private String buildCell(Integer value, int indent) {
 
         String valueStr = "";
         if (value != null) {
@@ -63,11 +62,10 @@ public class ViewTable {
 
     private  String normLengthStringFromSymbols(String startString, String symbol, int finishLength)
     {
-
-        String finishString = startString;
-        while (finishString.length() < finishLength) {
-            finishString = symbol.concat(finishString);
+        StringBuilder stringBuilder = new StringBuilder(startString);
+        for (int i = startString.length(); i < finishLength; ++i) {
+            stringBuilder.insert(0, symbol);
         }
-        return finishString;
+        return stringBuilder.toString();
     }
 }
