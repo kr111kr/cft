@@ -1,0 +1,317 @@
+
+
+
+
+            @rabbit1  : rabbit(breed: "Бельгийский фландр", target:{"мясной", "шкурка"}, size: string{"очень крупный"}, hair: string{"длинношорстные"}, wool: string{ "густая", "очень густая"}, color: string{"черный", "белый", "серый", "светло-серый", "темно-серый", "рыжый", "коричневый", "голубой", "песочный", "серебристый", "серо-рыжий"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "спокойное", "умное", "не агрессивное"}),
+            @rabbit2  : rabbit(breed: "Серый великан", target:{"мясной", "домашний", "шкурка"}, size: string{"крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"не густая"}, color: string{"черный", "серый", "темно-серый", "рыжый"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "устойчив к климату", " хорошо переносит содержание в небольших клетках"}),
+            @rabbit3  : rabbit(breed: "Белый великан", target:{"шкурка"}, size: string{"крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"белый"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "альбинос", "плохо переносит содержание в тесных клетках"}),
+            @rabbit4  : rabbit(breed: "Калифорнийский кроль", target:{"мясной", "домашний"}, size: string{"средний", "крупный"}, hair: string{"короткошорстные", "среднешерстные"}, wool: string{"густая"}, color: string{"черный", "белый", "коричневый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличает устойчивость к низким температурам", "отличает устойчивость к высоким температурам"}),
+            @rabbit5  : rabbit(breed: "Советская шиншилла", target:{"мясной", "домашний"}, size: string{"средний", "крупный"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"серый", "темно-серый", "муаровый", "серебристый", "белый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличает устойчивость к низким температурам"}),
+            @rabbit6  : rabbit(breed: "Чёрно-бурый кроль", target:{"мясной", "шкурка"}, size: string{"средний", "крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"черный", "бурый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличается устойчивостью к погодным условиям средней полосы"}),
+            @rabbit7  : rabbit(breed: "Серебристый", target:{"мясной", "домашний", "шкурка"}, size: string{"средний", "крупный"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"серый", "светло-серый", "темно-серый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+            @rabbit8  : rabbit(breed: "Бабочка", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","белый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+            @rabbit9  : rabbit(breed: "Венский голубой", target:{"домашний", "шкурка"}, size: string{"средний"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"сизо-голубой", "голубой"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+            @rabbit10  : rabbit(breed: "Баран", target:{"мясной", "домашний", "шкурка"}, size: string{"маленький", "средний", "крупный", "очень крупный"}, hair: string{"короткошорстные", "среднешерстные", "длинношорстные"}, wool: string{"не густая", "густая", "очень густая"}, color: string{"любой"}, description: string{""можно содержать как на улице", "подходит для разведения в домашних условиях", "свисающие уши", "большое разнообразие"}),
+            @rabbit11  : rabbit(breed: "Горностаевая порода", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","белый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях", "непрехотлива к условиям содержания", "очень красивый мех"}),
+            @rabbit12  : rabbit(breed: "Советский мардер", target:{"мясной", "домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая"}, color: string{"серый", "светло-серый", "темно-серый", "коричневый"}, description: string{""можно содержать как на улице", "подходит для разведения в домашних условиях", "много пуха", "домашний питомец"}),
+            @rabbit13  : rabbit(breed: "Порода Рекс", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","каштановый", "коричневый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях", "отличаются игривостью", "ласковые", "домашний питомец"}),
+            @rabbit14  : rabbit(breed: "Ангорская пуховая порода", target:{"домашний", "пух"}, size: string{"маленький"}, hair: string{"длинношорстные"}, wool: string{"густая"}, color: string{"любой"}, description: string{"пуховая порода", "длинный густой мех", "подходит для разведения в домашних условиях", "ценный пух", "домашний питомец"}),
+            @rabbit15  : rabbit(breed: "Белая пуховая порода", target:{"домашний", "пух"}, size: string{"средний", "крупный"}, hair: string{"длинношорстные"}, wool: string{"густая", "очень густая"}, color: string{"белый"}, description: string{"пуховая порода", "длинный густой мех", "устойчив к климату", "домашний питомец"}),
+            @rabbit16  : rabbit(breed: "Львиная головка", target:{"домашний"}, size: string{"маленький"}, hair: string{"длинношорстные"}, wool: string{"густая", "очень густая"}, color: string{"серый", "светло-серый", "темно-серый"}), description: string{"миниатюрные", "длинный густой мех", "домашний питомец"},
+            @rabbit17  : rabbit(breed: "Японская карликовая", target:{"домашний"}, size: string{"маленький"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"рыжый", "коричневый", "бурый"}, description: string{"миниатюрные", "домашний питомец"}),
+            @rabbit18  : rabbit(breed: "Огнёвка карликовая", target:{"домашний"}, size: string{"маленький"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","бурый", "рыжый"}, description: string{"миниатюрные", "ласковые", "домашний питомец"}),
+            @rabbit19  : rabbit(breed: "Минилоп", target:{"домашний"}, size: string{"маленький"}, hair: string{"короткошорстные", "среднешерстные"}, wool: string{"густая"}, color: string{"черный", "серый", "светло-серый", "темно-серый"}, description: string{"миниатюрные", "домашний питомец"});
+
+
+
+
+
+
+            @rabbit1  : rabbit(breed: "Гавана", target:{"мясной", "домашний", "шкурка", "пух"}, size: string{"маленький", "средний", "крупный", "очень крупный", "любой"}, hair: string{"короткошорстные", "среднешерстные", "длинношорстные"}, wool: string{"не густая", "густая", "очень густая"}, color: string{"черный","белый", "серый", "светло-серый", "темно-серый", "рыжый", "коричневый"}),
+            @rabbit1  : rabbit(breed: "Гавана", target:{"мясной", "домашний", "шкурка", "пух"}, size: string{"маленький", "средний", "крупный", "очень крупный", "любой"}, hair: string{"короткошорстные", "среднешерстные", "длинношорстные"}, wool: string{"не густая", "густая", "очень густая"}, color: string{"черный","белый", "серый", "светло-серый", "темно-серый", "рыжый", "коричневый"}),
+
+
+
+
+
+            @cat20  : cat(breed: "Сноу-шу", hair: string{"короткошорстные"}, color: string{"сил","шоколадный","голубой","лиловый"}, description: string{""});
+
+
+
+
+
+
+
+
+            module Rabbits;
+
+            var $y_breed, $y_desc, $rabbits : integer;
+            var $Win_breed, $Win_descs : integer;
+            var $descMenu, $descChoise, $targetMenu, $targetChoice, $sizeMenu, $sizeChice, $hairMenu, $hairChoise, $woolMenu, $woolChoice, $colorMenu, $colorChoise : set of string;
+
+            var $descMenuTuple, $targetMenuTuple, $sizeMenuTuple, $hairMenuTuple, $woolMenuTuple, $colorMenuTuple : tuple of string;
+            var $ch_desc, $ch_target, $ch_size, $ch_hair, $ch_wool, $ch_color : string;
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            function SetToTuple( $S: set of string ): tuple of string
+            begin
+            var $t: tuple of string := string[];
+              for $e in $S loop
+               $t:=$t+string[$e];
+              end;
+              return $t;
+            end;
+
+            //-----------------------------------------------------------------------------------------------------------------------------
+            rule Stop
+            =>
+              activate group();
+            end;
+
+            //------------------------------Выводит список выбранных пород------------------------------------------------------------------
+            rule PrintBreeds
+               forall $c: rabbit(breed: $breed, target: $target, size: $size, hair: $hair, wool: $wool, color: $color, description: $desc)  when
+               ($descChoise <= $desc) & ($targetChoise <= $target) & ($sizeChoise <= $size) & ($hairChoise <= $hair) & ($woolChoise <= $wool) & ((#($colorChoise * {"любой"}) != 0) | (#($colorChoise * $color) != 0) | (#($color * {"любой"}) != 0))
+            =>
+              $rabbits:=$rabbits +1;
+              OutText( $Win_breed, 10, $y_breed, $breed);
+              $y_breed := $y_breed + 15;
+
+              $descMenu:=$descMenu+$desc-$descChoise;
+            end;
+
+            //------------------------------Создание colorMenu------------------------------------------------------------------------------
+            rule CreateColorMenu
+               forall $c: rabbit(breed: $breed, target: $target, size: $size, hair: $hair, wool: $wool, color: $color, description: $desc)
+            =>
+              $colorMenu:=$colorMenu+$color;
+            end;
+
+            //------------------------------Изменение descMenu и вывод ---------------------------------------------------------------------
+            rule NewDescs
+            =>
+              $descChoise:=$descChoise+string{$ch_desc};
+              OutText($Win_descs,10,$y_desc,$ch_desc);
+              $y_desc:=$y_desc+15;
+            end;
+
+            //------------------------------------------------------------------------------------------------------------------------------
+            begin
+            var $n : integer;
+            var $r: tuple of integer;
+
+                     new
+                        @rabbit1  : rabbit(breed: "Бельгийский фландр", target:{"мясной", "шкурка"}, size: string{"очень крупный"}, hair: string{"длинношорстные"}, wool: string{ "густая", "очень густая"}, color: string{"черный", "белый", "серый", "светло-серый", "темно-серый", "рыжый", "коричневый", "голубой", "песочный", "серебристый", "серо-рыжий"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "спокойное", "умное", "не агрессивное"}),
+                        @rabbit2  : rabbit(breed: "Серый великан", target:{"мясной", "домашний", "шкурка"}, size: string{"крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"не густая"}, color: string{"черный", "серый", "темно-серый", "рыжый"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "устойчив к климату", " хорошо переносит содержание в небольших клетках"}),
+                        @rabbit3  : rabbit(breed: "Белый великан", target:{"шкурка"}, size: string{"крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"белый"}, description: string{"для опытных заводчиков", "отличаются большим весом", "отличаются выносливостью", "требуют особых условий содержания", "альбинос", "плохо переносит содержание в тесных клетках"}),
+                        @rabbit4  : rabbit(breed: "Калифорнийский кроль", target:{"мясной", "домашний"}, size: string{"средний", "крупный"}, hair: string{"короткошорстные", "среднешерстные"}, wool: string{"густая"}, color: string{"черный", "белый", "коричневый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличает устойчивость к низким температурам", "отличает устойчивость к высоким температурам"}),
+                        @rabbit5  : rabbit(breed: "Советская шиншилла", target:{"мясной", "домашний"}, size: string{"средний", "крупный"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"серый", "темно-серый", "муаровый", "серебристый", "белый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличает устойчивость к низким температурам"}),
+                        @rabbit6  : rabbit(breed: "Чёрно-бурый кроль", target:{"мясной", "шкурка"}, size: string{"средний", "крупный", "очень крупный"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"черный", "бурый"}, description: string{"привлекательны своей скороспелостью и неприхотливостью", "подходит для разведения в домашних условиях", "отличается устойчивостью к погодным условиям средней полосы"}),
+                        @rabbit7  : rabbit(breed: "Серебристый", target:{"мясной", "домашний", "шкурка"}, size: string{"средний", "крупный"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"серый", "светло-серый", "темно-серый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+                        @rabbit8  : rabbit(breed: "Бабочка", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","белый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+                        @rabbit9  : rabbit(breed: "Венский голубой", target:{"домашний", "шкурка"}, size: string{"средний"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"сизо-голубой", "голубой"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях"}),
+                        @rabbit10  : rabbit(breed: "Баран", target:{"мясной", "домашний", "шкурка"}, size: string{"маленький", "средний", "крупный", "очень крупный"}, hair: string{"короткошорстные", "среднешерстные", "длинношорстные"}, wool: string{"не густая", "густая", "очень густая"}, color: string{"любой"}, description: string{""можно содержать как на улице", "подходит для разведения в домашних условиях", "свисающие уши", "большое разнообразие"}),
+                        @rabbit11  : rabbit(breed: "Горностаевая порода", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","белый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях", "непрехотлива к условиям содержания", "очень красивый мех"}),
+                        @rabbit12  : rabbit(breed: "Советский мардер", target:{"мясной", "домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая"}, color: string{"серый", "светло-серый", "темно-серый", "коричневый"}, description: string{""можно содержать как на улице", "подходит для разведения в домашних условиях", "много пуха", "домашний питомец"}),
+                        @rabbit13  : rabbit(breed: "Порода Рекс", target:{"домашний", "шкурка"}, size: string{"маленький", "средний"}, hair: string{"короткошорстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","каштановый", "коричневый"}, description: string{"можно содержать как на улице", "подходит для разведения в домашних условиях", "отличаются игривостью", "ласковые", "домашний питомец"}),
+                        @rabbit14  : rabbit(breed: "Ангорская пуховая порода", target:{"домашний", "пух"}, size: string{"маленький"}, hair: string{"длинношорстные"}, wool: string{"густая"}, color: string{"любой"}, description: string{"пуховая порода", "длинный густой мех", "подходит для разведения в домашних условиях", "ценный пух", "домашний питомец"}),
+                        @rabbit15  : rabbit(breed: "Белая пуховая порода", target:{"домашний", "пух"}, size: string{"средний", "крупный"}, hair: string{"длинношорстные"}, wool: string{"густая", "очень густая"}, color: string{"белый"}, description: string{"пуховая порода", "длинный густой мех", "устойчив к климату", "домашний питомец"}),
+                        @rabbit16  : rabbit(breed: "Львиная головка", target:{"домашний"}, size: string{"маленький"}, hair: string{"длинношорстные"}, wool: string{"густая", "очень густая"}, color: string{"серый", "светло-серый", "темно-серый"}), description: string{"миниатюрные", "длинный густой мех", "домашний питомец"},
+                        @rabbit17  : rabbit(breed: "Японская карликовая", target:{"домашний"}, size: string{"маленький"}, hair: string{"среднешерстные"}, wool: string{"густая"}, color: string{"рыжый", "коричневый", "бурый"}, description: string{"миниатюрные", "домашний питомец"}),
+                        @rabbit18  : rabbit(breed: "Огнёвка карликовая", target:{"домашний"}, size: string{"маленький"}, hair: string{"среднешерстные"}, wool: string{"густая", "очень густая"}, color: string{"черный","бурый", "рыжый"}, description: string{"миниатюрные", "ласковые", "домашний питомец"}),
+                        @rabbit19  : rabbit(breed: "Минилоп", target:{"домашний"}, size: string{"маленький"}, hair: string{"короткошорстные", "среднешерстные"}, wool: string{"густая"}, color: string{"черный", "серый", "светло-серый", "темно-серый"}, description: string{"миниатюрные", "домашний питомец"});
+
+
+              $descMenu   := string{};
+              $descChoise := string{};
+
+
+              $targetMenu   := string{"мясной", "домашний", "шкурка"};
+
+              $sizeMenu   := string{"маленький", "средний", "крупный", "очень крупный"};
+
+              $hairMenu   := string{"короткошорстные", "среднешерстные", ""длинношерстные"};
+              $woolMenu   := string{"не густая", "густая", "очень густая"};
+
+              $colorMenu  := string{};
+              $colorChoise:= string{};
+
+            // Создание окна для вывода выбранных пород кроликов
+              $Win_breed := MakeWindow( "Подходящие породы кроликов", 450, 20, 300, 430 );
+              TextColor($Win_breed, 3);
+              $y_breed := 10;
+
+            // Создание окна для вывода выбранных характеристик
+              $Win_descs := MakeWindow( "Выбранные характеристики кроликов", 20, 20, 420, 170 );
+              TextColor($Win_descs, 1);
+              $y_desc := 10;
+
+              // Начальная выборка по цели заведения
+                            if Ask( "", "Делать выбор по цели заведения?" ) then
+
+                              OutText($Win_descs,10,$y_desc,"--По цели заведения--");
+                              $y_desc:=$y_desc+15;
+
+                              $n:=1;
+                              $targetMenuTuple:=SetToTuple($targetMenu);
+                              $n := Menu( 20, 200, "Выберите цель заведения кролика", $targetMenuTuple,0 );
+                              if $n!=0 then
+                                 $ch_target:=$targetMenuTuple[$n];
+
+                                 //logs
+                                 WriteLn($targetMenuTuple);
+                                 WriteLn($ch_target);
+
+                                 $targetChoise := {$ch_target};
+                                 OutText($Win_descs,10,$y_desc,$ch_target);
+                                 $y_desc:=$y_desc+15;
+
+                              end;
+                            else
+                              $targetChoise := {};
+                            end;
+
+
+
+
+
+            // Начальная выборка по размеру
+                          if Ask( "", "Делать выбор по размеру?" ) then
+
+                            OutText($Win_descs,10,$y_desc,"--По типу шерсти--");
+                            $y_desc:=$y_desc+15;
+
+                            $n:=1;
+                            $sizeMenuTuple:=SetToTuple($sizeMenu);
+                            $n := Menu( 20, 200, "Выберите тип шерсти кошки", $sizeMenuTuple,0 );
+                            if $n!=0 then
+                               $ch_size:=$sizeMenuTuple[$n];
+
+                               //logs
+                               WriteLn($sizeMenuTuple);
+                               WriteLn($ch_size);
+
+                               $sizeChoise := {$ch_size};
+                               OutText($Win_descs,10,$y_desc,$ch_size);
+                               $y_desc:=$y_desc+15;
+
+                            end;
+                          else
+                            $sizeChoise := {};
+                          end;
+
+
+
+            // Начальная выборка по длине шерсти
+              if Ask( "", "Делать выбор по длине шерсти?" ) then
+
+                OutText($Win_descs,10,$y_desc,"--По типу шерсти--");
+                $y_desc:=$y_desc+15;
+
+                $n:=1;
+                $hairMenuTuple:=SetToTuple($hairMenu);
+                $n := Menu( 20, 200, "Выберите тип шерсти кошки", $hairMenuTuple,0 );
+                if $n!=0 then
+                   $ch_hair:=$hairMenuTuple[$n];
+
+                   //logs
+                   WriteLn($hairMenuTuple);
+                   WriteLn($ch_hair);
+
+                   $hairChoise := {$ch_hair};
+                   OutText($Win_descs,10,$y_desc,$ch_hair);
+                   $y_desc:=$y_desc+15;
+
+                end;
+              else
+                $hairChoise := {};
+              end;
+
+
+  // Начальная выборка по густоте шерсти
+              if Ask( "", "Делать выбор по густоте шерсти?" ) then
+
+                OutText($Win_descs,10,$y_desc,"--По типу шерсти--");
+                $y_desc:=$y_desc+15;
+
+                $n:=1;
+                $woolMenuTuple:=SetToTuple($woolMenu);
+                $n := Menu( 20, 200, "Выберите тип шерсти кошки", $woolMenuTuple,0 );
+                if $n!=0 then
+                   $ch_wool:=$woolMenuTuple[$n];
+
+                   //logs
+                   WriteLn($woolMenuTuple);
+                   WriteLn($ch_wool);
+
+                   $woolChoise := {$ch_wool};
+                   OutText($Win_descs,10,$y_desc,$ch_wool);
+                   $y_desc:=$y_desc+15;
+
+                end;
+              else
+                $woolChoise := {};
+              end;
+
+
+
+            // Начальная выборка по цвету окраса
+              if Ask( "", "Делать выбор по цвету окраса?" ) then
+
+                OutText($Win_descs,10,$y_desc,"--По цвету окраса--");
+                $y_desc:=$y_desc+15;
+
+                call group(CreateColorMenu,Stop);
+
+                $n:=1;
+                $colorMenuTuple:=SetToTuple($colorMenu);
+
+                $r := Select( 20, 200, "Выберите допустимые цвета окраса", $colorMenuTuple);
+
+                WriteLn($colorMenuTuple);
+
+                for $i in $r loop
+
+                  WriteLn( $colorMenuTuple[$i] );
+
+                  $colorChoise:=$colorChoise+string{$colorMenuTuple[$i]};
+                  OutText($Win_descs,10,$y_desc,$colorMenuTuple[$i]);
+                  $y_desc:=$y_desc+15;
+
+                end;
+              else
+                  $colorChoise := {"любая"};
+              end;
+
+            // Выборка по характеристикам кролика
+
+              OutText($Win_descs,10,$y_desc,"--По дополнительным параметрам--");
+              $y_desc:=$y_desc+15;
+
+              $rabbits:=0;
+              $n:=1;
+              call group(PrintBreeds,Stop);
+
+              while ($n!=0 & $rabbits>1) loop
+                $descMenuTuple:=SetToTuple($descMenu);
+                $n := Menu( 20, 200, "Выберите характеристики кролика", $descMenuTuple, 0 );
+                if $n!=0 then
+                  $ch_desc:=$descMenuTuple[$n];
+
+                   //logs
+                  WriteLn($descMenuTuple);
+                  WriteLn($ch_desc);
+
+                  ClearWindow($Win_breed);
+                  $y_breed:=10;
+                  $descMenu:=string{};
+                  $rabbits:=0;
+
+                  call group(NewDescs,PrintBreeds,Stop);
+
+                  if #$descMenu=0 then $n:=0; end;
+                end;
+              end;
+
+              Message( "", "Выбор закончен" );
+            end.
