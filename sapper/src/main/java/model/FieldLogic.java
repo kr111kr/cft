@@ -5,16 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class FieldLogic {
-    // private FieldViewPanel fieldViewPanel;
-    //private List<Cell> cellsRequiringRepaint;
 
-
-    public FieldLogic() {
-        // this.fieldViewPanel = fieldViewPanel;
-    //    cellsRequiringRepaint = new ArrayList<>();
-    }
-
-    public List<Cell> openCell(Field field, int x, int y/*, boolean isOpenAll, boolean isEmpty*/) {
+    public List<Cell> openCell(Field field, int x, int y) {
 
         if (field.getField()[x][y].getIsFlag() != 0) {
             return new ArrayList<>();
@@ -74,61 +66,38 @@ public class FieldLogic {
         int countOpenCell = field.getCountOpenCell();
         field.setCountOpenCell(countOpenCell + openedCells.size());
         return openedCells;
+    }
 
-        /*if (!isOpenAll && !isEmpty) {
-            cellsRequiringRepaint = new ArrayList<>();
-        }
-        // button.repaintCell();
-        cellsRequiringRepaint.add(field.getField()[x][y]);
+    public List<Cell> openCellCircle(Field field, int x, int y) {
+        List<Cell> cellsOpened = new ArrayList<>();
 
-        if (field.getField()[x][y].isBomb() && !isOpenAll) {
-            openAllCell(field);
-        } else if (field.getField()[x][y].getCountBomb() == 0 && !isOpenAll) {
+        if (field.getField()[x][y].isOpen()) {
+
+            List<Cell> cellsRequiringRepaint = new ArrayList<>();
+
+            int countFlag = 0;
             for (int offsetX = -1; offsetX <= 1; offsetX++) {
                 for (int offsetY = -1; offsetY <= 1; offsetY++) {
-                    if (!outBounds(field, offsetX + x, offsetY + y) && (offsetX != 0 || offsetY != 0)) {
-                        // circleT.add(new Pair<>(offsetX + a, offsetY + b));
-                        openCell(field, offsetX + x, offsetY + y, false, true);
+                    int neighbourX = offsetX + x;
+                    int neighbourY = offsetY + y;
+                    if (!outBounds(field, neighbourX, neighbourY) && (offsetX != 0 || offsetY != 0)) {
+                        if (field.getField()[neighbourX][neighbourY].getIsFlag() == 1) {
+                            countFlag++;
+                        } else {
+                            cellsRequiringRepaint.add(field.getField()[neighbourX][neighbourY]);
+                        }
                     }
                 }
             }
+
+            if (countFlag == field.getField()[x][y].getCountBomb()) {
+                for (Cell cell : cellsRequiringRepaint) {
+                    cellsOpened.addAll(openCell(field, cell.getX(), cell.getY()));
+                }
+            }
         }
-        if (!isOpenAll && !isEmpty) {
-            fieldViewPanel.repaintCells(cellsRequiringRepaint);
-        }*/
-
+        return cellsOpened;
     }
-
-     public List<Cell> openCellCircle(Field field, int x, int y) {
-         List<Cell> cellsOpened = new ArrayList<>();
-
-         if (field.getField()[x][y].isOpen()) {
-
-             List<Cell> cellsRequiringRepaint = new ArrayList<>();
-
-             int countFlag = 0;
-             for (int offsetX = -1; offsetX <= 1; offsetX++) {
-                 for (int offsetY = -1; offsetY <= 1; offsetY++) {
-                     int neighbourX = offsetX + x;
-                     int neighbourY = offsetY + y;
-                     if (!outBounds(field, neighbourX, neighbourY) && (offsetX != 0 || offsetY != 0)) {
-                         if (field.getField()[neighbourX][neighbourY].getIsFlag() == 1) {
-                             countFlag++;
-                         } else {
-                             cellsRequiringRepaint.add(field.getField()[neighbourX][neighbourY]);
-                         }
-                     }
-                 }
-             }
-
-             if (countFlag == field.getField()[x][y].getCountBomb()) {
-                 for (Cell cell : cellsRequiringRepaint) {
-                     cellsOpened.addAll(openCell(field, cell.getX(), cell.getY()));
-                 }
-             }
-         }
-         return cellsOpened;
-     }
 
     private boolean outBounds(Field field, int x, int y) {
         return x < 0 || y < 0 || x >= field.getGameConfiguration().getWidth() || y >= field.getGameConfiguration().getHeight();
@@ -152,7 +121,7 @@ public class FieldLogic {
             field.getField()[x][y].setIsFlag((field.getField()[x][y].getIsFlag() + 1) % 3);//ООченььььь ПЛООООХХОООО
             if (field.getField()[x][y].getIsFlag() == 1) {
                 field.setCountFlagCell(field.getCountFlagCell() + 1);
-            } else if (field.getField()[x][y].getIsFlag() == 0){
+            } else if (field.getField()[x][y].getIsFlag() == 0) {
                 field.setCountFlagCell(field.getCountFlagCell() - 1);
             }
             return (Collections.singletonList(field.getField()[x][y]));

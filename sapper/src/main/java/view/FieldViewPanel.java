@@ -6,36 +6,35 @@ import model.Field;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.io.IOException;
-import java.util.EventListener;
 import java.util.List;
 
 public class FieldViewPanel extends JPanel {
 
     private int CELL_SIZE = 30;
 
-    private Textures textures;
+    private TexturesCells texturesCells;
     private MineButton[][] mineButtons;
 
     private Controller controller;
 
     private boolean gameOverFlag;
 
-    public FieldViewPanel(Controller controller) {
+    public FieldViewPanel(Controller controller) throws IOException {
         this.controller = controller;
         gameOverFlag = false;
-        try {
-            textures = new Textures();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        texturesCells = new TexturesCells();
     }
 
     public void repaintCells(List<Cell> cells) {
         for (Cell cell : cells) {
             mineButtons[cell.getX()][cell.getY()].repaintCell();
         }
+    }
+
+    public void setGameOver() {
+        gameOverFlag = true;
     }
 
     public void createEmptyField(Field field) {
@@ -54,7 +53,7 @@ public class FieldViewPanel extends JPanel {
         mineButtons = new MineButton[rows][columns];
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < columns; ++j) {
-                mineButtons[i][j] = new MineButton(field.getField()[i][j], textures);
+                mineButtons[i][j] = new MineButton(field.getField()[i][j], texturesCells);
                 mineButtons[i][j].setMinimumSize(new Dimension(CELL_SIZE, CELL_SIZE));
                 mineButtons[i][j].setSize(new Dimension(CELL_SIZE, CELL_SIZE));
                 mineButtons[i][j].setMaximumSize(new Dimension(CELL_SIZE, CELL_SIZE));
@@ -81,7 +80,7 @@ public class FieldViewPanel extends JPanel {
         @Override
         public void onRightButton() {
             if (!gameOverFlag)
-                controller.switchFlag(cell.getX(), cell.getY());
+                controller.switchFlagCell(cell.getX(), cell.getY());
         }
 
         @Override

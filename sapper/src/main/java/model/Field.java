@@ -1,27 +1,16 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Field {
-    //private List<List<Integer>> field = new ArrayLi ArrayList<Integer>[10][10];
-
     private Cell[][] field;
     private GameConfiguration gameConfiguration;
-   /* private int height;
-    private int width;
-    private int countMine;*/
+    private boolean isBombOpen;
     private int countOpenCell;
     private int countFlagCell;
-    private boolean isBombOpen;
 
-   /* public int getCountMine() {
-        return gameConfiguration.getCountBomb();
+    public Field(GameConfiguration gameConfiguration) {
+        this.gameConfiguration = gameConfiguration;
+        this.field = new Cell[gameConfiguration.getWidth()][gameConfiguration.getHeight()];
     }
-
-    public void setCountMine(int countMine) {
-        this.gameConfiguration.setCountBomb(countMine);
-    }*/
 
     public boolean isBombOpen() {
         return isBombOpen;
@@ -46,27 +35,6 @@ public class Field {
     public void setCountFlagCell(int countFlagCell) {
         this.countFlagCell = countFlagCell;
     }
-
-    public Field(GameConfiguration gameConfiguration){//int width, int height) {
-        this.gameConfiguration = gameConfiguration;
-        this.field = new Cell[gameConfiguration.getWidth()][gameConfiguration.getHeight()];
-    }
-
- /*   public int getHeight() {
-        return gameConfiguration.getHeight();
-    }
-
-    public void setHeight(int height) {
-        this.gameConfiguration.setHeight(height);
-    }
-
-    public int getWidth() {
-        return gameConfiguration.getWidth();
-    }
-
-    public void setWidth(int width) {
-        this.gameConfiguration.setWidth(width);
-    }*/
 
     public Cell[][] getField() {
         return field;

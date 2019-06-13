@@ -14,7 +14,7 @@ public class AddRecordWindow {
 
     private JFrame newRecord;
     private JPanel panel;
-    private JOptionPane textWin;
+    private JTextPane textWin;
     private JTextField textField;
     private JButton okButton;
     private JButton cancelButton;
@@ -22,14 +22,16 @@ public class AddRecordWindow {
 
     public AddRecordWindow(StatisticController statisticController, int time) throws HeadlessException {
         newRecord = new JFrame("Новый рекорд");
-        newRecord.setSize(new Dimension(300, 210));
-        newRecord.setMinimumSize(new Dimension(300, 210));
-        newRecord.setPreferredSize(new Dimension(300, 210));
+        newRecord.setSize(new Dimension(350, 170));
+        newRecord.setMinimumSize(new Dimension(350, 170));
+        newRecord.setPreferredSize(new Dimension(350, 170));
         panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        textWin = new JOptionPane();
-        textWin.setMessage(String.format("Поздравляю вы победили и вошли в таблицу рекордов с результатом %d, пожалуйста введите свое имя", time));
+        textWin = new JTextPane();
+        textWin.setBackground(panel.getBackground());
+        textWin.setEditable(false);
+        textWin.setText(String.format("Поздравляю вы победили и вошли в таблицу рекордов\n с результатом %d, пожалуйста введите свое имя", time));
 
         panel.add(textWin);
 

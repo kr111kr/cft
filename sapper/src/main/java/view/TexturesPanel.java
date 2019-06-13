@@ -10,9 +10,10 @@ public class TexturesPanel {
     private ImageIcon gameLoss;
 
     public TexturesPanel() throws IOException {
-        newGame = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" + "newGame.png")));
-        gameWins = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" + "gameWins.png")));
-        gameLoss = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" + "gameLoss.png")));
+        String path = "icons/";
+        newGame = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path + "newGame.png")));
+        gameWins = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path + "gameWins.png")));
+        gameLoss = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path + "gameLoss.png")));
     }
 
     public ImageIcon getNewGame() {

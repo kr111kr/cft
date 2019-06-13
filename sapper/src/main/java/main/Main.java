@@ -5,22 +5,12 @@ import view.MainWindow;
 
 public class Main {
     public static void main(String args[]) {
-       /* FieldGenerator generateField = new FieldGenerator();
-        generateField.createField(10, 10);
-        Frame frame = new Frame();
-        frame.initComponents();
-
-*/
-
         Controller controller = new Controller();
 
-        MainWindow jf = new MainWindow(controller);
-        controller.setMainWindow(jf);
-        //controller.setFieldViewPanel(jf.getFieldViewPanel());
+        MainWindow mainWindow = new MainWindow(controller);
 
+        controller.setMainWindow(mainWindow);
         controller.initialize();
-        jf.show();
-
+        mainWindow.show();
     }
-
 }

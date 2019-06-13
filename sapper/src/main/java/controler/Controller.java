@@ -5,27 +5,18 @@ import view.FieldViewPanel;
 import view.MainWindow;
 import view.SpecialSettings;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Controller {
-
-   // public final
-
     private Field field;
-    private FieldGenerator fieldGenerator = new FieldGenerator();
-    private FieldLogic fieldLogic = new FieldLogic();
-    private DefaultConfiguration defaultConfiguration = new DefaultConfiguration();
+    private FieldGenerator fieldGenerator;
+    private FieldLogic fieldLogic;
+    private DefaultConfiguration defaultConfigurationField;
 
     private FieldViewPanel fieldViewPanel;
     private MainWindow mainWindow;
 
-    private StatisticController statisticController = new StatisticController();
+    private StatisticController statisticController;
 
     private boolean isFirstClick;
 
@@ -38,23 +29,21 @@ public class Controller {
         this.fieldViewPanel = mainWindow.getFieldViewPanel();
     }
 
-    public void setFieldViewPanel(FieldViewPanel fieldViewPanel) {
-        this.fieldViewPanel = fieldViewPanel;
+    public void initialize() {
+        defaultConfigurationField = new DefaultConfiguration();
+        newGame(defaultConfigurationField.getGameConfigurations().get(0));
     }
 
-    public void initialize()
-    {
-        newGame(defaultConfiguration.getGameConfigurations().get(0));
-    }
-
-    public void newGame(){
+    public void newGame() {
         newGame(field.getGameConfiguration());
     }
 
-    public void newGame(GameConfiguration gameConfiguration){//int w, int h, int mine){
+    public void newGame(GameConfiguration gameConfiguration) {
         isFirstClick = true;
+        fieldGenerator = new FieldGenerator();
+        fieldLogic = new FieldLogic();
+
         field = fieldGenerator.createField(gameConfiguration);
-        //field.setCountMine(mine);
         fieldViewPanel.createEmptyField(field);
 
         field.setCountOpenCell(0);
@@ -62,64 +51,61 @@ public class Controller {
         mainWindow.updateSize();
 
         mainWindow.getControlPanel().setNewGame();
-        mainWindow.getControlPanel().updateFlagBomb(field.getGameConfiguration().getCountBomb());
+        mainWindow.getControlPanel().updateCountFlagBomb(field.getGameConfiguration().getCountBomb());
 
-
-        statisticController.fill();
+        statisticController = new StatisticController();
+        // statisticController.fill();
 
     }
 
-    public void openCell(int x, int y){
-        if (isFirstClick)
-        {
+    public void openCell(int x, int y) {
+        if (isFirstClick) {
             fieldGenerator.generateMine(field, x, y);
-           // field.setCountOpenCell(0);
-           // field.setCountFlagCell(0);
             isFirstClick = false;
             mainWindow.getControlPanel().startTimer();
-
         }
+
         List<Cell> updateCells = fieldLogic.openCell(field, x, y);
         fieldViewPanel.repaintCells(updateCells);
         checkGameOver();
     }
 
-    public void openNonMarkedNeighbors(int x, int y){
+    public void openNonMarkedNeighbors(int x, int y) {
         List<Cell> updateCells = fieldLogic.openCellCircle(field, x, y);
         fieldViewPanel.repaintCells(updateCells);
         checkGameOver();
     }
 
-    public void switchFlag(int x, int y){
+    public void switchFlagCell(int x, int y) {
         List<Cell> updateCells = fieldLogic.changeFlag(field, x, y);
         fieldViewPanel.repaintCells(updateCells);
-        mainWindow.getControlPanel().updateFlagBomb(field.getGameConfiguration().getCountBomb() - field.getCountFlagCell());
+        mainWindow.getControlPanel().updateCountFlagBomb(field.getGameConfiguration().getCountBomb() - field.getCountFlagCell());
     }
 
-    private void checkGameOver()
-    {
-        if (fieldLogic.gameOver(field))
-        {
-            String stopTime;
+    private void checkGameOver() {
+        if (fieldLogic.gameOver(field)) {
+            fieldViewPanel.setGameOver();
             if (field.isBombOpen()) {
-               stopTime =  mainWindow.getControlPanel().setGameLoss();
+                mainWindow.getControlPanel().setGameLoss();
 
-            }
-            else {
-                stopTime = mainWindow.getControlPanel().setGameWins();
+            } else {
+                String stopTime = mainWindow.getControlPanel().setGameWins();
 
-                if (field.getGameConfiguration().isFixRecord()) {//getHeight() == 9 && field.getWidth() == 9 && field.getCountMine() == 10)
-                    statisticController.checkTime(Integer.parseInt(stopTime), field.getGameConfiguration().getNumberSpiskaRecord());
+                if (field.getGameConfiguration().isFixRecord()) {
+                    statisticController.checkTime(Integer.parseInt(stopTime), field.getGameConfiguration().getNumberListRecord());
                 }
             }
         }
     }
 
-    public DefaultConfiguration getDefaultConfiguration() {
-        return defaultConfiguration;
+    public DefaultConfiguration getDefaultConfigurationField() {
+        if (defaultConfigurationField == null) {
+            defaultConfigurationField = new DefaultConfiguration();
+        }
+        return defaultConfigurationField;
     }
 
-    public void getOpenSpecialSettings(){
+    public void getOpenSpecialSettings() {
         new SpecialSettings(this);
     }
 }

@@ -7,47 +7,35 @@ import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 
 public class MineButton extends JButton {
-    private Textures textures;
+    private TexturesCells texturesCells;
 
     private Cell cell;
 
-    public MineButton(Cell cell, Textures textures) {
+    public MineButton(Cell cell, TexturesCells texturesCells) {
         this.cell = cell;
 
-        this.textures = textures;
+        this.texturesCells = texturesCells;
     }
 
-    public Cell getCell() {
-        return cell;
-    }
-
-    public void repaintCell(/*Cell cell*/) {
+    public void repaintCell() {
         if (cell.isOpen()) {
-            //setContentAreaFilled(false);
-           /* setBackground(Color.GRAY);
-            setForeground(Color.GRAY);
-            */
-          //  setRequestFocusEnabled(false);
-        //   setFocusPainted(false);
             setEnabled(false);
             if (cell.isBomb()) {
                 if (cell.getIsFlag() != 1) {
-                    setDisabledIcon(textures.getBombImage());
-                    setIcon(textures.getBombImage());
+                    setDisabledIcon(texturesCells.getBombImage());
+                    setIcon(texturesCells.getBombImage());
                     if (cell.isFirstOpenBomb()) {
                         setBackground(Color.red);
                     }
-                }
-                else {
-                    setDisabledIcon(textures.getFlagImage());
-                    setBackground(new ColorUIResource(202,255, 112));
+                } else {
+                    setDisabledIcon(texturesCells.getFlagImage());
+                    setBackground(new ColorUIResource(202, 255, 112));
                 }
             } else if (cell.getCountBomb() > 0 && cell.getCountBomb() <= 9) {
-                setDisabledIcon(textures.getValueImage(cell.getCountBomb()));
-                setIcon(textures.getValueImage(cell.getCountBomb()));
-                if (cell.getIsFlag() != 0)
-                {
-                    setIcon(textures.getFlagImage());
+                setDisabledIcon(texturesCells.getValueImage(cell.getCountBomb()));
+                setIcon(texturesCells.getValueImage(cell.getCountBomb()));
+                if (cell.getIsFlag() != 0) {
+                    setIcon(texturesCells.getFlagImage());
                     setBackground(Color.pink);
                 }
             }
@@ -57,10 +45,10 @@ public class MineButton extends JButton {
                     setIcon(null);
                     break;
                 case 1:
-                    setIcon(textures.getFlagImage());
+                    setIcon(texturesCells.getFlagImage());
                     break;
                 case 2:
-                    setIcon(textures.getQuestionImage());
+                    setIcon(texturesCells.getQuestionImage());
                     break;
             }
         }

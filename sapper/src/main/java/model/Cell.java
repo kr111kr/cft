@@ -6,7 +6,7 @@ public class Cell {
     private boolean isOpen;
     private boolean isBomb;
     private int isFlag;
-    private  boolean isFirstOpenBomb;
+    private boolean isFirstOpenBomb;
     private int countBomb;
 
     public Cell(int x, int y) {
@@ -14,12 +14,12 @@ public class Cell {
         this.y = y;
     }
 
-    public int getIsFlag() {
-        return isFlag;
+    public int getX() {
+        return x;
     }
 
-    public void setIsFlag(int isFlag) {
-        this.isFlag = isFlag;
+    public int getY() {
+        return y;
     }
 
     public boolean isOpen() {
@@ -38,20 +38,20 @@ public class Cell {
         isBomb = bomb;
     }
 
+    public int getIsFlag() {
+        return isFlag;
+    }
+
+    public void setIsFlag(int isFlag) {
+        this.isFlag = isFlag;
+    }
+
     public int getCountBomb() {
         return countBomb;
     }
 
     public void setCountBomb(int countBomb) {
         this.countBomb = countBomb;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public boolean isFirstOpenBomb() {

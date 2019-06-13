@@ -6,17 +6,14 @@ import java.util.List;
 
 public class ScannerString {
 
-    static public FileReader openFileReader(String puth) throws FileNotFoundException {
-
-       // puth = "./src/main/resources/input.txt";
-        File file = new File(puth);
+    static public FileReader openFileReader(String path) throws FileNotFoundException {
+        File file = new File(path);
         return new FileReader(file);
     }
 
     static public List<String> scannerFile(FileReader inputFile) throws IOException {
         List<String> lineFromFile = new ArrayList<>();
         BufferedReader reader = new BufferedReader(inputFile);
-
 
         String temp = reader.readLine();
 

@@ -6,23 +6,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Textures {
+public class TexturesCells {
 
     private List<ImageIcon> valueImage;
     private ImageIcon bombImage;
     private ImageIcon questionImage;
     private ImageIcon flagImage;
 
-    public Textures() throws IOException {
+    public TexturesCells() throws IOException {
         valueImage = new ArrayList<>();
+        String path = "icons/";
         for (int i = 0; i < 10; ++i)
         {
-            valueImage.add(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" + i + ".png"))));
+            valueImage.add(new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path + i + ".png"))));
         }
 
-        bombImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" +"bomb.png")));
-        questionImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" +"question.png")));
-        flagImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("icons/" +"flag.png")));
+        bombImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path +"bomb.png")));
+        questionImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path +"question.png")));
+        flagImage = new ImageIcon(ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(path +"flag.png")));
     }
 
     public ImageIcon getQuestionImage() {
@@ -34,7 +35,6 @@ public class Textures {
     }
 
     public ImageIcon getValueImage(int value) {
-
         return valueImage.get(value);
     }
 

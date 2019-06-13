@@ -36,6 +36,12 @@ public class DefaultConfiguration {
     }
 
     public GameConfiguration getGameConfigurationsToParameter(int h, int w, int bomb) {
-        return new GameConfiguration(null, h, w, bomb, false);
+        for (GameConfiguration gameConfiguration : gameConfigurations){
+            if (gameConfiguration.getWidth() == w && gameConfiguration.getHeight() == h && gameConfiguration.getCountBomb() == bomb){
+                return gameConfiguration;
+            }
+        }
+
+        return new GameConfiguration(null, h, w, bomb);
     }
 }

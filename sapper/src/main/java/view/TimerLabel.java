@@ -5,27 +5,26 @@ import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
-@SuppressWarnings ("serial")
-public class TimerLabel extends JLabel
-{
+@SuppressWarnings("serial")
+public class TimerLabel extends JLabel {
+    private static final String TIME_FORMAT = "%04d";
+
     private Timer timer;
-    public TimerLabel (/*Timer timer*/)
-    {
+
+    public TimerLabel() {
         timer = new Timer();
-       // new timerTaskCust;
         timer.scheduleAtFixedRate(new timerTaskCust(), 0, 1000);
-     //   JLabel timerLabel = new TimerLabel(new Timer());
         this.setFont(new Font(this.getFont().getFontName(), this.getFont().getStyle(), 16));
     }
 
-    public void cleanTimer(){
+    public void cleanTimer() {
         if (timer != null) {
             timer.cancel();
-            TimerLabel.this.setText(String.format("%04d", 0));//("%02d:%02d", 0, 0));
+            TimerLabel.this.setText(String.format(TIME_FORMAT, 0));
         }
     }
 
-    public void startTimer(){
+    public void startTimer() {
         if (timer != null) {
             timer.cancel();
         }
@@ -33,8 +32,7 @@ public class TimerLabel extends JLabel
         timer.scheduleAtFixedRate(new timerTaskCust(), 0, 1000);
     }
 
-    public String stopTimer(){
-      //  String s = TimerLabel.this.getText();
+    public String stopTimer() {
         if (timer != null) {
             timer.cancel();
         }
@@ -42,76 +40,18 @@ public class TimerLabel extends JLabel
         return TimerLabel.this.getText();
     }
 
-    //private TimerTask timerTask = new TimerTask()
-    public class timerTaskCust extends TimerTask
-    {
+    public class timerTaskCust extends TimerTask {
         private volatile int time = -1;
 
-        private Runnable refresher = new Runnable()
-        {
-            @Override
-            public void run ()
-            {
-                int t = time;
-                TimerLabel.this.setText(String.format("%04d", t ));//"%02d:%02d", t / 60, t % 60));
-            }
+        private Runnable refresher = () -> {
+            int t = time;
+            TimerLabel.this.setText(String.format(TIME_FORMAT, t));
         };
 
         @Override
-        public void run ()
-        {
+        public void run() {
             time++;
             SwingUtilities.invokeLater(refresher);
-
         }
     }
-
-   /* public class timerTaskCust extends TimerTask
-    {
-        private volatile int time = -1;
-
-        private Runnable refresher = new Runnable()
-        {
-            @Override
-            public void run ()
-            {
-                int t = time;
-                TimerLabel.this.setText(String.format("%02d:%02d", t / 60, t % 60));
-            }
-        };
-
-        @Override
-        public void run ()
-        {
-            time++;
-            SwingUtilities.invokeLater(refresher);
-
-        }
-    };
-*/
-  /*  public static void main (String[] args)
-    {
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel timerLabel = new TimerLabel(new Timer());
-        timerLabel.setFont(new Font(timerLabel.getFont().getFontName(), timerLabel.getFont().getStyle(), 36));
-        frame.add(timerLabel);
-        frame.pack();
-        frame.setVisible(true);
-    }*/
-
-    /*public JLabel getTimer()
-    {
-       // JFrame frame = new JFrame();
-       // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //JLabel timerLabel = new TimerLabel(new Timer());
-        //timerLabel.setFont(new Font(timerLabel.getFont().getFontName(), timerLabel.getFont().getStyle(), 36));
-       // frame.add(timerLabel);
-      //  frame.pack();
-       // frame.setVisible(true);
-        return timerLabel;
-    }*/
 }
-
-
-//private TimerTask timerTask = new TimerTask()

@@ -1,15 +1,11 @@
 package view;
 
 import controler.Controller;
-import controler.StatisticController;
-import model.GameConfiguration;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,24 +13,15 @@ import static javax.swing.SwingConstants.HORIZONTAL;
 
 public class SpecialSettings {
 
-
+    private final Double PERCENT_BOMB = 0.9;
+    private final int SEPARATION_STEP = 6;
+    private final int START_VALUE =9;
     private JFrame specialFrame;
     private JPanel panel;
 
     private List<JLabel> texts;
     private List<JTextField> fieldsValue;
     private List<JSlider> slidersCountBomb;
-
-    /*private JLabel textHeight;
-    private JLabel textWidth;
-    private JLabel textCountBomb;
-    private JTextField fieldHeight;
-    private JTextField fieldWidth;
-    private JTextField fieldCountBomb;
-    private JSlider sliderHeight;
-    private JSlider sliderWidth;
-    private JSlider sliderCountBomb;
-*/
 
     private JButton okButton;
     private JButton cancelButton;
@@ -44,7 +31,7 @@ public class SpecialSettings {
         specialFrame = new JFrame("Специальное поле");
         specialFrame.setSize(new Dimension(250, 210));
         specialFrame.setMinimumSize(new Dimension(250, 380));
-        // specialFrame.setPreferredSize(new Dimension(4500, 610));
+
         panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
@@ -53,19 +40,18 @@ public class SpecialSettings {
         slidersCountBomb = new ArrayList<>();
         addHeightParameter(0, "Ширина(от 5 до 65): ", 5, 65, 9);
         addHeightParameter(1, "Высота(от 5 до 32):", 5, 32, 9);
-        addHeightParameter(2, "Количество бомб: ", 5, ((Double)(9 * 9 * 0.9)).intValue(), 10);
+        addHeightParameter(2, "Количество бомб: ", 5, ((Double) (9 * 9 * PERCENT_BOMB)).intValue(), 10);
 
         okButton = new JButton("OK");
         okButton.setPreferredSize(new Dimension(90, 30));
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
+                int height = Integer.valueOf(fieldsValue.get(0).getText());
+                int width = Integer.valueOf(fieldsValue.get(1).getText());
+                int countBomb = Integer.valueOf(fieldsValue.get(2).getText());
                 System.out.println("Okay");
-                controller.newGame(new GameConfiguration("Specific",
-                        Integer.valueOf(fieldsValue.get(0).getText()),
-                        Integer.valueOf(fieldsValue.get(1).getText()),
-                        Integer.valueOf(fieldsValue.get(2).getText()),
-                        false));
+                controller.newGame(controller.getDefaultConfigurationField().getGameConfigurationsToParameter(height, width, countBomb));
                 specialFrame.dispose();
             }
         });
@@ -108,13 +94,10 @@ public class SpecialSettings {
         if (kod != 2) {
             slidersCountBomb.get(kod).setMajorTickSpacing(10);
         } else {
-            int s = (slidersCountBomb.get(2).getMaximum() - slidersCountBomb.get(2).getMinimum()) / 6;
-            slidersCountBomb.get(kod).setMajorTickSpacing(s);
-            slidersCountBomb.get(kod).setLabelTable(slidersCountBomb.get(kod).createStandardLabels(s));
+            slidersCountBomb.get(kod).setLabelTable(slidersCountBomb.get(kod).createStandardLabels(countMajorLabel()));
 
         }
         slidersCountBomb.get(kod).setMinorTickSpacing(1);
-        //   slidersCountBomb.get(kod).setSnapToTicks(true);
         slidersCountBomb.get(kod).setPaintTicks(true);
         slidersCountBomb.get(kod).setPaintLabels(true);
 
@@ -122,17 +105,19 @@ public class SpecialSettings {
         panelHeight.add(fieldsValue.get(kod));
         panelHeight.add(slidersCountBomb.get(kod));
 
-        slidersCountBomb.get(kod).addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                if (kod == 0 || kod == 1) {
-                    updateParameterSlider();
-                }
-
-                jSlider1StateChanged(kod);
+        slidersCountBomb.get(kod).addChangeListener(evt -> {
+            if (kod == 0 || kod == 1) {
+                updateParameterSlider();
             }
+
+            jSlider1StateChanged(kod);
         });
 
         panel.add(panelHeight);
+    }
+
+    private int countMajorLabel() {
+        return (slidersCountBomb.get(2).getMaximum() - slidersCountBomb.get(2).getMinimum()) / SEPARATION_STEP;
     }
 
     private void jSlider1StateChanged(int kod) {
@@ -140,10 +125,10 @@ public class SpecialSettings {
     }
 
     private void updateParameterSlider() {
-        slidersCountBomb.get(2).setMaximum(((Double) (slidersCountBomb.get(0).getValue() * slidersCountBomb.get(1).getValue() * 0.9)).intValue());
-        int s = (slidersCountBomb.get(2).getMaximum() - slidersCountBomb.get(2).getMinimum()) / 6;
-        slidersCountBomb.get(2).setMajorTickSpacing(s);
-        slidersCountBomb.get(2).setLabelTable(slidersCountBomb.get(2).createStandardLabels(s));
+        slidersCountBomb.get(2).setMaximum(((Double) (slidersCountBomb.get(0).getValue() *
+                                                    slidersCountBomb.get(1).getValue() *
+                                                    PERCENT_BOMB)).intValue());
+        slidersCountBomb.get(2).setLabelTable(slidersCountBomb.get(2).createStandardLabels(countMajorLabel()));
 
     }
 }
